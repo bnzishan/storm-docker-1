@@ -1,5 +1,4 @@
 FROM sunside/java-base
-
 MAINTAINER Markus Mayer <widemeadows@gmail.com>
 
 ENV STORM_DL_VERSION apache-storm-0.10.0
