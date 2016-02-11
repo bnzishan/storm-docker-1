@@ -3,6 +3,8 @@
 ZOOKEEPER_ADDRESS=${ZOOKEEPER_ADDRESS:=$ZK_PORT_2181_TCP_ADDR}
 ZOOKEEPER_PORT=${ZOOKEEPER_PORT:=2181}
 NIMBUS_ADDRESS=${NIMBUS_ADDRESS:=$NIMBUS_PORT_6627_TCP_ADDR}
+NIMBUS_DRPC_PORT=${NIMBUS_DRPC_PORT:=3772}
+NIMBUS_DRPCI_PORT=${NIMBUS_DRPCI_PORT:=3773}
 SUPERVISOR_ADDRESS=${SUPERVISOR_ADDRESS:=`hostname -i`}
 
 if [ -z "$ZOOKEEPER_ADDRESS" ]; then 
@@ -19,6 +21,8 @@ fi
 sed -i -e "s/%zookeeper%/$ZOOKEEPER_ADDRESS/g" $STORM_HOME/conf/storm.yaml
 sed -i -e "s/%zookeeper.port%/$ZOOKEEPER_PORT/g" $STORM_HOME/conf/storm.yaml
 sed -i -e "s/%nimbus%/$NIMBUS_ADDRESS/g" $STORM_HOME/conf/storm.yaml
+sed -i -e "s/%nimbus.drpc.port%/$NIMBUS_DRPC_PORT/g" $STORM_HOME/conf/storm.yaml
+sed -i -e "s/%nimbus.drpci.port%/$NIMBUS_DRPCI_PORT/g" $STORM_HOME/conf/storm.yaml
 echo "storm.local.hostname: $SUPERVISOR_ADDRESS" >> $STORM_HOME/conf/storm.yaml
 
 supervisord
