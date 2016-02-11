@@ -1,24 +1,35 @@
 zookeeper:
   image: sunside/zookeeper
   container_name: zookeeper
+  hostname: zookeeper
+  net: bridge
   ports: 
     - "49181:2181"
 
 nimbus:
   image: sunside/storm-nimbus
   container_name: storm-nimbus
+  hostname: storm-nimbus
+  net: bridge
   ports:
     - "49773:3773"
     - "49772:3772"
     - "49627:6627"
+  links:
+   - zookeeper
   environment: 
     - "ZOOKEEPER_ADDRESS=zookeeper"
 
 supervisor:
   image: sunside/storm-supervisor
   container_name: storm-supervisor
+  hostname: storm-supervisor
+  net: bridge
   ports:
     - "8000"
+  links:
+    - zookeeper
+    - nimbus
   environment:
     - "NIMBUS_ADDRESS=storm-nimbus"
     - "ZOOKEEPER_ADDRESS=zookeeper"
@@ -26,8 +37,13 @@ supervisor:
 ui:
   image: sunside/storm-ui
   container_name: storm-ui
+  hostname: storm-ui
+  net: bridge
   ports:
     - "49080:8080"
+  links:
+    - zookeeper
+    - nimbus
   environment:
     - "NIMBUS_ADDRESS=storm-nimbus"
     - "ZOOKEEPER_ADDRESS=zookeeper"
