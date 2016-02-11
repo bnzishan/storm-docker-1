@@ -24,6 +24,23 @@ Add more supervisors:
 
 - ```rebuild.sh```
 
+## Running a supervisor
+
+Here, `SUPERVISOR_ADDRESS` is the address of the supervisor's host.
+
+```bash
+docker run -d --restart=unless-stopped \
+        --name storm-supervisor \
+        -p 8000:8000 \
+        -e "NIMBUS_ADDRESS=10.3.2.110" \
+        -e "NIMBUS_DRPC_PORT=49772" \
+        -e "NIMBUS_DRPCI_PORT=49773" \
+        -e "ZOOKEEPER_ADDRESS=10.3.2.110" \
+        -e "ZOOKEEPER_PORT=49181" \
+        -e "SUPERVISOR_ADDRESS=10.3.2.120" \
+        sunside/storm-supervisor:0.10.0
+```
+
 ## FAQ
 ### How can I access Storm UI from my host?
 Take a look at docker-compose.yml:

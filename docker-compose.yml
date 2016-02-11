@@ -19,6 +19,8 @@ nimbus:
    - zookeeper
   environment: 
     - "ZOOKEEPER_ADDRESS=zookeeper"
+    - "NIMBUS_ADDRESS=storm-nimbus"
+    - "NIMBUS_IP=storm-nimbus"
 
 supervisor:
   image: sunside/storm-supervisor:0.10.0
