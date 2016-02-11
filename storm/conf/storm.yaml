@@ -4,5 +4,5 @@ storm.zookeeper.port: %zookeeper.port%
 nimbus.host: "%nimbus%"
 drpc.servers:
   - "%nimbus%"
-drpc.port: %nimbus.drcp.port%
-drpc.invocations.port: %nimbus.drcpi.port%
+drpc.port: %nimbus.drpc.port%
+drpc.invocations.port: %nimbus.drpci.port%
