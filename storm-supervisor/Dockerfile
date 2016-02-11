@@ -1,11 +1,7 @@
-FROM wurstmeister/storm:0.9.4
-MAINTAINER Wurstmeister
+FROM sunside/storm:0.10.0
+MAINTAINER Markus Mayer <widemeadows@gmail.com>
 
-EXPOSE 6700
-EXPOSE 6701
-EXPOSE 6702
-EXPOSE 6703
-EXPOSE 8000
+EXPOSE 6700 6701 6702 6703 8000
 
 RUN /usr/bin/config-supervisord.sh supervisor
 RUN /usr/bin/config-supervisord.sh logviewer
