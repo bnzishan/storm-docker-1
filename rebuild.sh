@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION=0.10.0
+VERSION=latest
 
 docker build -t="sunside/storm:$VERSION" storm
 docker build -t="sunside/storm-nimbus:$VERSION" storm-nimbus

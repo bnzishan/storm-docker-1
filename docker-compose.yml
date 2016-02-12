@@ -7,7 +7,7 @@ zookeeper:
     - "49181:2181"
 
 nimbus:
-  image: sunside/storm-nimbus:0.10.0
+  image: sunside/storm-nimbus
   container_name: storm-nimbus
   hostname: storm-nimbus
   net: bridge
@@ -23,7 +23,7 @@ nimbus:
     - "NIMBUS_IP=storm-nimbus"
 
 supervisor:
-  image: sunside/storm-supervisor:0.10.0
+  image: sunside/storm-supervisor
   container_name: storm-supervisor
   hostname: storm-supervisor
   net: bridge
@@ -37,7 +37,7 @@ supervisor:
     - "ZOOKEEPER_ADDRESS=zookeeper"
 
 ui:
-  image: sunside/storm-ui:0.10.0
+  image: sunside/storm-ui
   container_name: storm-ui
   hostname: storm-ui
   net: bridge

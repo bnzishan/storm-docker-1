@@ -1,4 +1,4 @@
-FROM sunside/storm:0.10.0
+FROM sunside/storm:latest
 MAINTAINER Markus Mayer <widemeadows@gmail.com>
 
 EXPOSE 6700 6701 6702 6703 8000

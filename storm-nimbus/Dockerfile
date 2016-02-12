@@ -1,4 +1,4 @@
-FROM sunside/storm:0.10.0
+FROM sunside/storm:latest
 MAINTAINER Markus Mayer <widemeadows@gmail.com>
 
 RUN /usr/bin/config-supervisord.sh nimbus 
