@@ -18,8 +18,11 @@ RUN echo [supervisord] | tee -a /etc/supervisor/supervisord.conf \
 	&& echo nodaemon=true | tee -a /etc/supervisor/supervisord.conf
 
 COPY bin/config-supervisord.sh /usr/bin/
-COPY bin/start-supervisor.sh /usr/bin/
+COPY bin/configure-storm.sh /usr/bin/
+COPY bin/start-supervisord.sh /usr/bin/
 
 COPY conf/storm.yaml $STORM_HOME/conf/
 COPY conf/cluster.xml $STORM_HOME/logback/
 
+WORKDIR $STORM_HOME
+VOLUME $STORM_HOME/conf/
