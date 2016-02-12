@@ -4,7 +4,7 @@ zookeeper:
   hostname: zookeeper
   net: bridge
   ports: 
-    - "49181:2181"
+    - "2181:2181"
 
 nimbus:
   image: sunside/storm-nimbus
@@ -12,15 +12,15 @@ nimbus:
   hostname: storm-nimbus
   net: bridge
   ports:
-    - "49773:3772"
-    - "49772:3773"
-    - "49627:6627"
+    - "49773:49772"
+    - "49772:49773"
+    - "49627:49627"
   links:
    - zookeeper
   environment: 
     - "LOCAL_HOSTNAME=storm-nimbus"
     - "ZOOKEEPER_ADDRESS=zookeeper"
-    - "ZOOKEEPER_PORT=49181"
+    - "ZOOKEEPER_PORT=2181"
     - "NIMBUS_ADDRESS=storm-nimbus"
     - "NIMBUS_THRIFT_PORT=49627"
     - "DRPC_PORT=49772"
@@ -43,7 +43,7 @@ supervisor:
     - "DRPC_PORT=49772"
     - "DRPCI_PORT=49773"
     - "ZOOKEEPER_ADDRESS=zookeeper"
-    - "ZOOKEEPER_PORT=49181"
+    - "ZOOKEEPER_PORT=2181"
 
 ui:
   image: sunside/storm-ui
@@ -62,4 +62,4 @@ ui:
     - "DRPC_PORT=49772"
     - "DPRCI_PORT=49773"
     - "ZOOKEEPER_ADDRESS=zookeeper"
-    - "ZOOKEEPER_PORT=49181"
+    - "ZOOKEEPER_PORT=2181"
