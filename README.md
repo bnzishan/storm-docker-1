@@ -1,5 +1,7 @@
 # storm-docker
 
+[![](https://images.microbadger.com/badges/version/sunside/storm.svg)](http://microbadger.com/images/sunside/storm "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/sunside/storm.svg)](http://microbadger.com/images/sunside/storm "Get your own image badge on microbadger.com")
+
 Dockerfiles for building a storm cluster. Inspired by [https://github.com/ptgoetz/storm-vagrant](https://github.com/ptgoetz/storm-vagrant) and [https://github.com/wurstmeister/storm-docker](https://github.com/wurstmeister/storm-docker).
 
 ## Pre-Requisites
